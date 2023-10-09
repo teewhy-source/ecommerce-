@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+   box-sizing: border-box;
+}
+.navigation{
+    height: 4rem;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    .logo-container{
+        height: 2rem;
+        width: 70px;
+        padding: 25px;
+        // .image{
+        //     width: 3rem;
+        //     height: 3rem;
+        // }
+    }
+
+    .links-container{
+        width: 50%;
+        height: 6.25rem;
+        display: flex;
+        align-items: center;
+    }
+}
