@@ -1,31 +1,38 @@
-.navigation{
+.navigation {
     height: 4rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center; /* vertically center items */
     margin-bottom: 25px;
-
-
-    .logo-container{
-        height: 4rem;
-        width: 70px;
-        padding: 25px;
-        .image{
-            width: 3rem;
-            height: 3rem;
-           
-        }
-    }
-
-    .links-container{
+  
+    .logo-container {
+      height: 100%; /* Take full height of .navigation */
+      width: auto; /* Adjust width automatically based on content */
+      padding: 0 1rem; /* Add padding to the logo container */
+      display: flex;
+      align-items: center; /* vertically center items */
+  
+      .image {
         width: 3rem;
-            height: 3rem;
-        display: flex;
-        align-items: center;
-        .nav-links{
-            text-decoration: none;
-            color: palevioletred ;
-
-        }
+        height: 3rem;
+        object-fit: contain; /* Maintain aspect ratio */
+      }
     }
-}
+  
+    .links-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+  
+      .nav-links {
+        text-decoration: none;
+        color: palevioletred;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  

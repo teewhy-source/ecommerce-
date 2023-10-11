@@ -2,21 +2,14 @@ import React, { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Usercontex } from "../../../../contex/Contex";
 import logo from "../../../../images/teewhy.jpg";
+import Cartdropdown from "../../../cartdropdown/Cartdropdown";
+import { Cartcontext } from "../../../../contex/Cart.context";
 import { signoutuser } from "../../../../utils/firebase/Firebase";
-
+import Cart from "../../../cart/Carticon";
 const Navigation = () => {
   const { currentuser } = useContext(Usercontex);
-
-  // const signouthandler = async () => {
-  //   try {
-  //     await signoutuser();
-  //     setcurrentuser(null);
-  //   } catch (error) {
-  //     console.error("Error signing out:", error);
-  //     // Handle error (show a message to the user, log it, etc.)
-  //   }
-  // };
-
+const {iscartopen}=useContext(Cartcontext)
+  
   return (
     <Fragment>
       <div className="navigation">
@@ -40,8 +33,10 @@ const Navigation = () => {
               Sign In
             </Link>
           )}
+          <Cart/>
         </div>
-      </div>
+      {iscartopen &&<Cartdropdown/>}     
+       </div>
       <Outlet />
     </Fragment>
   );
