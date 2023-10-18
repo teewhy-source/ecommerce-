@@ -1,6 +1,20 @@
-.directory-container{
+// Directory.scss
+
+.directory-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
+    gap: 20px; // Add some gap between Categoryitem components
+  
+    @media (max-width: 768px) {
+      justify-content: center; // Center items on smaller screens
+    }
+  
+    .category-item {
+      flex: 1; // Allow items to grow and take available space equally
+      max-width: 300px; // Set a maximum width for each item
+      margin-bottom: 20px; // Add some space at the bottom of each item
+    }
+  }
+  

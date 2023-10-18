@@ -1,0 +1,28 @@
+// cart-item.styles.scss
+.cart-item-container {
+    width: 100px;
+    display: flex;
+    height: 80px;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    
+  
+    img {
+      width: 30%;
+    }
+  
+    .item-details {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 10px 20px;
+    }
+  
+    .name {
+      font-size: 16px;
+      gap: 3rem;
+    }
+  }
+  

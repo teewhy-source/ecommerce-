@@ -1,7 +1,8 @@
-.cart-dropdown-container{
+// cartdropdown.styles.scss
+.cart-dropdown-container {
     position: absolute;
     width: 240px;
-    height: 340px;
+    max-height: 340px; /* Changed height to max-height for better responsiveness */
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -10,22 +11,27 @@
     top: 90px;
     right: 40px;
     z-index: 5;
-
-    .empty-message{
-        font-size: 18px;
-        margin: 50px auto;
+    overflow-y: hidden; /* Changed to overflow-y */
+    gap: 3rem;
+  
+    .empty-message {
+      font-size: 18px;
+      margin: 50px auto;
     }
-
-    .cart-item{
-        height: 240px;
-        display: flex;
-        flex-direction: column;
-        overflow: scroll;
+  
+    .cart-items {
+      height: 100%; /* Use 100% height to fill the container */
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto; /* Ensure scrolling for cart items */
     }
-
-    button{
-      margin-top: 19rem;
+  
+    button {
+      margin-top: 1rem; /* Adjust margin */
       margin-left: 2rem;
-      background-color: red;
+      background-color: rgb(211, 7, 7);
+      color: white; /* Added text color */
+      padding: 10px 20px; /* Added padding */
     }
-}
+  }
+  
