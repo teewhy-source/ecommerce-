@@ -1,7 +1,15 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {} from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore,
+   doc, 
+   getDoc, 
+   setDoc,
+   collection,
+   writeBatch,
+   query,
+  getDocs,
+   } from "firebase/firestore";
 import {
   getAuth,
   signInWithRedirect,
@@ -39,7 +47,36 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleprovider);
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleprovider);
+
 export const db = getFirestore();
+
+export const addcollectionanddocument= async (collectionKey,Objectstoadd)=>{
+  const collectionref=collection(db,collectionKey)
+  const batch=writeBatch(db)
+
+  Objectstoadd.forEach((Object)=>{
+    const docref =doc(collectionref,Object.title.toLowerCase())
+    batch.set(docref,Object)
+  })
+  await batch.commit()
+  console.log("done batch");
+}
+
+export const getcategoriesanddocuments =async()=>{
+  const collectionref = collection(db,"categories")
+  const q = query(collectionref);
+
+
+  const querysnapshot = await getDocs(q)
+  const categorymap= querysnapshot.docs.reduce((acc,docsnapshot)=>{
+    const {title,items} = docsnapshot.data()
+    acc[title.toLowerCase()]=items
+    return acc
+  },{})
+  return categorymap
+}
+//becos i want to minimize the impact of a third party library in my code base
+
 
 export const createuserdocumentfromauth = async (
   userAuth,
