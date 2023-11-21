@@ -67,11 +67,13 @@ export const getcategoriesanddocuments =async()=>{
   const q = query(collectionref);
 
 
-  const querysnapshot = await getDocs(q)
-  const categorymap= querysnapshot.docs.reduce((acc,docsnapshot)=>{
-    const {title,items} = docsnapshot.data()
-    acc[title.toLowerCase()]=items
-    return acc
+  const querysnapshot = await getDocs(q);
+  const categorymap = querysnapshot.docs.reduce((acc, docsnapshot) => {
+    const { title, items } = docsnapshot.data();
+    if (title) { // Add a null check to ensure title is defined
+      acc[title.toLowerCase()] = items;
+    }
+    return acc;
   },{})
   return categorymap
 }

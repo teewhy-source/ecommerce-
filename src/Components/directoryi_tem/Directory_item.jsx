@@ -1,6 +1,6 @@
 import React from "react";
-import "../Category-item/Categoryitemstyle.scss";
-const Categoryitem = ({ category }) => {
+import "../directoryi_tem/directory.styles.scss";
+const Directory_item = ({ category }) => {
     const {imageUrl,title}=category
   return (
     <div  className="category-container">
@@ -18,4 +18,4 @@ const Categoryitem = ({ category }) => {
   );
 };
 
-export default Categoryitem;
+export default Directory_item;
